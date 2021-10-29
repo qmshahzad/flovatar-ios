@@ -1,4 +1,6 @@
-# FCLAuthSwift
+# Flovatar iOS App
+
+This is a clone of the FCLAuthSwift with modifcations for Flovatar
 
 `FCLAuthSwift` is a Swift library for the [Flow Client Library (FCL)](https://docs.onflow.org/fcl/)
 that enables Flow wallet authentication on iOS devices.
