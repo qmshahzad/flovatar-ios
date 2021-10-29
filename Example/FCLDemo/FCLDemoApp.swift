@@ -22,8 +22,8 @@ import SwiftUI
 struct FCLDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//            DetailView()
+//            ContentView()
+            DetailView()
         }
     }
 }
