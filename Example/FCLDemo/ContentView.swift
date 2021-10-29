@@ -44,7 +44,7 @@ struct ContentView: View {
 //            Button("Log in with Dapper") {
 //                viewModel.authn(provider: .dapper)
 //            }
-            Button("Blocto Login") {
+            Button("Login with Blocto") {
                 viewModel.authn(provider: .blocto)
             }
             .padding()
@@ -55,6 +55,8 @@ struct ContentView: View {
                 ProgressView()
             } else {
                 Text(verbatim: viewModel.address)
+//                let newViewController = DetailView()
+//                self.navigationController?.pushViewController(newViewController, animated: true)
             }
         }
     }

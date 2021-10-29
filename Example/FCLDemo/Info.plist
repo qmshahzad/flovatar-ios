@@ -22,10 +22,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.zed.fcl.demo.FCLDemo</string>
+			<string>com.flow.flovatar</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fclDemo</string>
+				<string>flovatar</string>
 			</array>
 		</dict>
 	</array>
@@ -41,7 +41,14 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>background</string>
+		<key>UIImageName</key>
+		<string>flovatar-logo</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

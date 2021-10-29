@@ -35,21 +35,14 @@ class ViewModel: ObservableObject {
     init() {
         fcl.delegate = self
 
-        let provider = FCLWalletProvider(
-            id: "foo",
-            name: "bar",
-            method: .httpPost,
-            endpoint: URL(string: "https://dapper-http-post.vercel.app/api/authn")!
-        )
-
         fcl.config(
             appInfo: FCLAppInfo(
                 title: "Flovatar",
-                icon: URL(string: "https://foo.com/bar.png")!,
-                location: URL(string: "https://foo.com")!
+                icon: URL(string: "https://flovatar.com/bar.png")!,
+                location: URL(string: "https://flovatar.com")!
             ),
             // default provider is  [.dapper, .blocto]
-            providers: [.dapper, .blocto, .custom(provider)]
+            providers: [.blocto]
         )
     }
 

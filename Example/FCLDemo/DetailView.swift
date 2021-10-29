@@ -21,27 +21,32 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var viewModel = ViewModel()
-
+    
+    
+    let backgroundGradient = LinearGradient(
+        
+        gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]),
+        startPoint: .top, endPoint: .bottom)
+    
     var body: some View {
-        NavigationView {
-            Form {
-                NFTs()
-            }.navigationTitle("Your Flovatars")
-        }.fullScreenCover(isPresented: $viewModel.isPlayVideo) {
-            let player = AVPlayer(url: viewModel.videoURL!)
-            VideoPlayer(player: player).onAppear {
-                player.play()
-            }.onDisappear {
-                player.pause()
-            }.edgesIgnoringSafeArea(.all)
-        }
+        ZStack {
+                    backgroundGradient
+                        .ignoresSafeArea()
+                    VStack {
+                        Image("flovatar-logo-small")
+                            .padding(.bottom)
+                            .padding()
+                        NFTs()
+                    }
+                }
+                .accentColor(Color.white)
     }
 
+
     fileprivate func NFTs() -> some View {
+        viewModel.fetchNFTs()
         return Section {
-            Button("Fetch NFTs") {
-                viewModel.fetchNFTs()
-            }
+
             ScrollView(.horizontal) {
                 LazyHGrid(rows: [GridItem()], content: {
                     ForEach(viewModel.nfts, id: \.self) { nft in
@@ -55,7 +60,7 @@ struct DetailView: View {
                                 } placeholder: {
                                     ProgressView()
                                 }
-                                .frame(width: 200, height: 200, alignment: .center)
+                                .frame(width: 300, height: 450, alignment: .bottom)
                                 .cornerRadius(30)
                                 .padding(10)
 
