@@ -22,8 +22,10 @@ import SwiftUI
 struct FCLDemoApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            DetailView()
+            // this is the login view
+            ContentView()
+            // this is the detail view for the viewing of Flovatars
+//            DetailView()
         }
     }
 }

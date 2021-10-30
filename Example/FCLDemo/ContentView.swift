@@ -21,46 +21,41 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
-
-    let backgroundGradient = LinearGradient(
-        
-        gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]),
-        startPoint: .top, endPoint: .bottom)
+    @State var advance = false
+    
+    let backgroundGradient = LinearGradient(gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]), startPoint: .top, endPoint: .bottom)
     
     var body: some View {
-        ZStack {
+        
+        NavigationView {
+            ZStack {
                     backgroundGradient
-                        .ignoresSafeArea()
+                    .ignoresSafeArea()
                     VStack {
                         Image("flovatar-logo").padding(.bottom)
+                        NavigationLink(destination: DetailView(), isActive: $advance) {
+                            Button("Login with Blocto") {
+                                viewModel.authn(provider: .blocto)
+                            }
                             .padding()
-                        authenticate()                    }
-                }
-                .accentColor(Color.white)
-    }
-
-    fileprivate func authenticate() -> some View {
-        return Section {
-//            Button("Log in with Dapper") {
-//                viewModel.authn(provider: .dapper)
-//            }
-            Button("Login with Blocto") {
-                viewModel.authn(provider: .blocto)
+                            .background(Color(red: 0.26, green: 0.11, blue: 0.56))
+                            .clipShape(Capsule())
+                            if viewModel.isLoading {
+                                ProgressView()
+                            } else {
+                                Text(verbatim: viewModel.address)
+                                .navigationBarHidden(true)
+                            }
+                        }
+                    }
+                    .accentColor(Color.white)
             }
-            .padding()
-            .background(Color(red: 0.26, green: 0.11, blue: 0.56))
-            .clipShape(Capsule())
-
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                Text(verbatim: viewModel.address)
-//                let newViewController = DetailView()
-//                self.navigationController?.pushViewController(newViewController, animated: true)
-            }
+                        
         }
+        
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
