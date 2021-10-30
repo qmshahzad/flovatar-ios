@@ -41,7 +41,7 @@ struct DetailView: View {
                             .shimmering()
                         Spacer()
                         VStack {
-//                            NFTs()
+                            NFTs()
                         }
                     }
                     .accentColor(Color.white)
@@ -58,20 +58,21 @@ struct DetailView: View {
                 LazyHGrid(rows: [GridItem()], content: {
                     ForEach(viewModel.nfts, id: \.self) { nft in
                         Button(action: {
-                            viewModel.isPlayVideo.toggle()
-                            viewModel.videoURL = nft.metadata.topShotImages.black
+//                            viewModel.isPlayVideo.toggle()
+//                            viewModel.videoURL = nft.metadata.topShotImages.black
                         }) {
                             VStack {
-                                AsyncImage(url: nft.metadata.image) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(width: 300, height: 450, alignment: .bottom)
-                                .cornerRadius(30)
-                                .padding(10)
-
-                                Text(nft.metadata.title)
+                                  AsyncImage(url: URL(string: "https://flovatar.com/images/flovatar-1.png"))
+//                                AsyncImage(url: nft.metadata.image) { image in
+//                                    image.resizable()
+//                                } placeholder: {
+//                                    ProgressView()
+//                                }
+//                                .frame(width: 300, height: 450, alignment: .bottom)
+//                                .cornerRadius(30)
+//                                .padding(10)
+//
+//                                Text(nft.metadata.title)
                             }
                         }
                     }

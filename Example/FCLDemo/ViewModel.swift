@@ -24,6 +24,8 @@ import UIKit
 class ViewModel: ObservableObject {
     @Published var address: String = ""
 
+    @Published var advance = false
+    
     @Published var isLoading: Bool = false
 
     @Published var isPlayVideo: Bool = false
@@ -55,13 +57,15 @@ class ViewModel: ObservableObject {
                 case let .success(data):
                     self.address = data.address
                     self.fetchNFTs()
+                    self.advance = true
                 case let .failure(error):
                     self.address = error.localizedDescription
+                    self.advance = false
                 }
             }
         }
     }
-
+    // needs to be replaced with blockchain address lookup
     func fetchNFTs() {
         let apiClient = NFTAPIClient(url: URL(string: "https://flow-nft-api-mock.vercel.app/api/v1/nfts")!)
         apiClient.listNFTsForAddress(address: address) { result in
