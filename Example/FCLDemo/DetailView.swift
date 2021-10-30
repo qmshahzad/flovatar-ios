@@ -18,6 +18,7 @@
 
 import AVKit
 import SwiftUI
+import Shimmer
 
 struct DetailView: View {
     @ObservedObject var viewModel = ViewModel()
@@ -37,6 +38,7 @@ struct DetailView: View {
                             .resizable()
                             .edgesIgnoringSafeArea(.top)
                             .scaledToFit()
+                            .shimmering()
                         Spacer()
                         VStack {
 //                            NFTs()
