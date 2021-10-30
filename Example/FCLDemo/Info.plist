@@ -46,8 +46,6 @@
 	<dict>
 		<key>UIColorName</key>
 		<string>background</string>
-		<key>UIImageName</key>
-		<string>flovatar-logo</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
 	</dict>

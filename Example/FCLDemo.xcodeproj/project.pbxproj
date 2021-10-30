@@ -13,7 +13,6 @@
 		15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2F16326DD07CB00FA19BD /* Preview Assets.xcassets */; };
 		15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F17526DD133800FA19BD /* ViewModel.swift */; };
 		439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EC1FD272C321D00A30C26 /* DetailView.swift */; };
-		439EC200272C353000A30C26 /* flovatar-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 439EC1FF272C353000A30C26 /* flovatar-logo.png */; };
 		439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439EC201272D1FE200A30C26 /* Storyboard.storyboard */; };
 		67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */; };
 		67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DFFADB26FE8B7B00136000 /* NFTAPI.swift */; };
@@ -29,7 +28,6 @@
 		15E2F16526DD07CB00FA19BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E2F17526DD133800FA19BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		439EC1FD272C321D00A30C26 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		439EC1FF272C353000A30C26 /* flovatar-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flovatar-logo.png"; sourceTree = "<group>"; };
 		439EC201272D1FE200A30C26 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +71,6 @@
 				15E2F15E26DD07C900FA19BD /* ContentView.swift */,
 				439EC1FD272C321D00A30C26 /* DetailView.swift */,
 				15E2F16026DD07CB00FA19BD /* Assets.xcassets */,
-				439EC1FF272C353000A30C26 /* flovatar-logo.png */,
 				15E2F16526DD07CB00FA19BD /* Info.plist */,
 				15E2F16226DD07CB00FA19BD /* Preview Content */,
 				15E2F17526DD133800FA19BD /* ViewModel.swift */,
@@ -161,7 +158,6 @@
 				15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */,
 				439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */,
 				15E2F16126DD07CB00FA19BD /* Assets.xcassets in Resources */,
-				439EC200272C353000A30C26 /* flovatar-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

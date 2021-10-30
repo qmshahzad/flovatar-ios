@@ -33,7 +33,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                     VStack {
                         Image("flovatar-logo").padding(.bottom)
-                        NavigationLink(destination: DetailView(), isActive: $advance) {
+                        NavigationLink(destination: DetailView().navigationBarBackButtonHidden(true), isActive: $advance) {
                             Button("Login with Blocto") {
                                 viewModel.authn(provider: .blocto)
                             }
@@ -44,7 +44,6 @@ struct ContentView: View {
                                 ProgressView()
                             } else {
                                 Text(verbatim: viewModel.address)
-                                .navigationBarHidden(true)
                             }
                         }
                     }

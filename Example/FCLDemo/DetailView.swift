@@ -29,17 +29,22 @@ struct DetailView: View {
         startPoint: .top, endPoint: .bottom)
     
     var body: some View {
-        ZStack {
-                    backgroundGradient
-                        .ignoresSafeArea()
-                    VStack {
-                        Image("flovatar-logo-small")
-                            .padding(.bottom)
-                            .padding()
-                        NFTs()
+        NavigationView {
+            ZStack {
+                        backgroundGradient
+                            .ignoresSafeArea()
+                        Image("beam")
+                            .resizable()
+                            .edgesIgnoringSafeArea(.top)
+                            .scaledToFit()
+                        Spacer()
+                        VStack {
+//                            NFTs()
+                        }
                     }
-                }
-                .accentColor(Color.white)
+                    .accentColor(Color.white)
+        }
+        
     }
 
 
