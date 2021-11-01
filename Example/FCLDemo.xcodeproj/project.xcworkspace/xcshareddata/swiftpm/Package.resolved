@@ -2,6 +2,33 @@
   "object": {
     "pins": [
       {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "a72df4849408da7e5d3c1b586797b7c601c41d1b",
+          "version": "5.12.1"
+        }
+      },
+      {
+        "package": "SDWebImageSVGCoder",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSVGCoder.git",
+        "state": {
+          "branch": null,
+          "revision": "0fefd2b89c64fb5ebbce2294dcb67581ed0fc0ff",
+          "version": "1.6.0"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "cd8625b7cf11a97698e180d28bb7d5d357196678",
+          "version": "2.0.2"
+        }
+      },
+      {
         "package": "SwiftUI-Shimmer",
         "repositoryURL": "https://github.com/markiv/SwiftUI-Shimmer",
         "state": {

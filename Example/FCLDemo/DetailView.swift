@@ -56,25 +56,8 @@ struct DetailView: View {
 
             ScrollView(.horizontal) {
                 LazyHGrid(rows: [GridItem()], content: {
-                    ForEach(viewModel.nfts, id: \.self) { nft in
-                        Button(action: {
-//                            viewModel.isPlayVideo.toggle()
-//                            viewModel.videoURL = nft.metadata.topShotImages.black
-                        }) {
-                            VStack {
-                                  AsyncImage(url: URL(string: "https://flovatar.com/images/flovatar-1.png"))
-//                                AsyncImage(url: nft.metadata.image) { image in
-//                                    image.resizable()
-//                                } placeholder: {
-//                                    ProgressView()
-//                                }
-//                                .frame(width: 300, height: 450, alignment: .bottom)
-//                                .cornerRadius(30)
-//                                .padding(10)
-//
-//                                Text(nft.metadata.title)
-                            }
-                        }
+                    ForEach(viewModel.flovatars, id: \.self) { flovatar in
+                        let _ = print(flovatar)
                     }
                 })
             }

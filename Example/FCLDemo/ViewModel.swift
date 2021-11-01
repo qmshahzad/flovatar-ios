@@ -32,7 +32,7 @@ class ViewModel: ObservableObject {
 
     @Published var videoURL: URL? = nil
 
-    @Published var nfts: [NFT] = []
+    @Published var flovatars: [Flovatars] = []
 
     init() {
         fcl.delegate = self
@@ -65,14 +65,17 @@ class ViewModel: ObservableObject {
             }
         }
     }
+    // https://flovatar.com/collection/api/0x715eba9a0dd9d21a
     // needs to be replaced with blockchain address lookup
     func fetchNFTs() {
-        let apiClient = NFTAPIClient(url: URL(string: "https://flow-nft-api-mock.vercel.app/api/v1/nfts")!)
+        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + "0x715eba9a0dd9d21a")!)
+//        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + address)!)
         apiClient.listNFTsForAddress(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
-                    self.nfts = response.nfts
+                    print("")
+//                    self.flovatars = response
                 case let .failure(error):
                     print(error)
                 }

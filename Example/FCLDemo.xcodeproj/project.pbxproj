@@ -12,6 +12,8 @@
 		15E2F16126DD07CB00FA19BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2F16026DD07CB00FA19BD /* Assets.xcassets */; };
 		15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2F16326DD07CB00FA19BD /* Preview Assets.xcassets */; };
 		15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F17526DD133800FA19BD /* ViewModel.swift */; };
+		43044367272EB78D007FED05 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 43044366272EB78D007FED05 /* SDWebImageSwiftUI */; };
+		4304436A272EB7CA007FED05 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 43044369272EB7CA007FED05 /* SDWebImageSVGCoder */; };
 		4349C8D5272D52E8001F8295 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 4349C8D4272D52E8001F8295 /* Shimmer */; };
 		439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EC1FD272C321D00A30C26 /* DetailView.swift */; };
 		439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439EC201272D1FE200A30C26 /* Storyboard.storyboard */; };
@@ -38,8 +40,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43044367272EB78D007FED05 /* SDWebImageSwiftUI in Frameworks */,
 				4349C8D5272D52E8001F8295 /* Shimmer in Frameworks */,
 				15A074A526FD7FFA00FC1444 /* FCLAuthSwift in Frameworks */,
+				4304436A272EB7CA007FED05 /* SDWebImageSVGCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,8 @@
 			packageProductDependencies = (
 				15A074A426FD7FFA00FC1444 /* FCLAuthSwift */,
 				4349C8D4272D52E8001F8295 /* Shimmer */,
+				43044366272EB78D007FED05 /* SDWebImageSwiftUI */,
+				43044369272EB7CA007FED05 /* SDWebImageSVGCoder */,
 			);
 			productName = FCLDemo;
 			productReference = 15E2F15926DD07C900FA19BD /* FCLDemo.app */;
@@ -144,6 +150,8 @@
 			mainGroup = 15E2F15026DD07C900FA19BD;
 			packageReferences = (
 				4349C8D3272D52E8001F8295 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 			);
 			productRefGroup = 15E2F15A26DD07C900FA19BD /* Products */;
 			projectDirPath = "";
@@ -371,6 +379,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		4349C8D3272D52E8001F8295 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
@@ -385,6 +409,16 @@
 		15A074A426FD7FFA00FC1444 /* FCLAuthSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FCLAuthSwift;
+		};
+		43044366272EB78D007FED05 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		43044369272EB7CA007FED05 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
 		};
 		4349C8D4272D52E8001F8295 /* Shimmer */ = {
 			isa = XCSwiftPackageProductDependency;
