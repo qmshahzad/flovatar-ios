@@ -16,6 +16,7 @@
 //  limitations under the License.
 //
 import Foundation
+import SwiftUI
 
 // TODO: replace mock API with real API when available
 
@@ -41,31 +42,35 @@ class NFTAPIClient {
         urlSession.resume()
     }
 
-    public func listNFTsForAddress(address: String, completion: @escaping (Result<NFTList, Error>) -> Void) {
-        var fullURL = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+    public func listNFTsForAddress(address: String, completion: @escaping (Result<[Flovatar], Error>) -> Void) {
+        
+        let fullURL = URLComponents(url: url, resolvingAgainstBaseURL: false)!
 
-        fullURL.queryItems = [
-            URLQueryItem(name: "owner", value: address),
-        ]
-
-        print(fullURL.url!)
+        let _ = print(fullURL.url!)
 
         loadJson(url: fullURL.url!) { result in
             switch result {
             case let .success(data):
                 do {
                     let decoder = JSONDecoder()
-                    let dateFormatter = DateFormatter()
-
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
-                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-                    let response = try decoder.decode(NFTList.self, from: data)
+                    let response = try decoder.decode([Flovatar].self, from: data)
                     completion(Result.success(response))
+
+                } catch let DecodingError.dataCorrupted(context) {
+                    let _ = (context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    let _ = print("Key '\(key)' not found:", context.debugDescription)
+                    let _ = print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    let _ = print("Value '\(value)' not found:", context.debugDescription)
+                    let _ = print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    let _ = print("Type '\(type)' mismatch:", context.debugDescription)
+                    let _ = print("codingPath:", context.codingPath)
                 } catch {
-                    completion(Result.failure(NFTAPIError.invalidResponse))
+                    let _ = print("error: ", error)
+                } catch {
+//                    completion(Result.failure(NFTAPIError.invalidResponse))
                 }
             case let .failure(error):
                 print(error)
@@ -80,48 +85,5 @@ enum NFTAPIError: String, Error, LocalizedError {
 
     public var errorDescription: String? {
         return rawValue
-    }
-}
-
-struct NFTList: Decodable, Hashable {
-    public let owner: String
-    public let nfts: [NFT]
-}
-
-struct NFT: Decodable, Hashable {
-    public let id: String
-    public let contract: NFTContract
-    public let metadata: NFTMetaData
-}
-
-struct NFTContract: Decodable, Hashable {
-    public let name: String
-    public let address: String
-}
-
-struct NFTMetaData: Decodable, Hashable {
-    public let title: String
-    public let image: URL
-    public let topShotImages: TopShotImages
-    public let topShotPlay: TopShotPlay
-    public let createdAt: Date
-
-    public struct TopShotImages: Decodable, Hashable {
-        public let assetPathPrefix: URL
-        public let hero: URL
-        public let black: URL
-    }
-
-    public struct TopShotPlay: Decodable, Hashable {
-        public let id: String
-        public let description: String
-        public let stats: Stats
-
-        public struct Stats: Decodable, Hashable {
-            public let playerName: String
-            public let jerseyNumber: String
-            public let totalYearsExperience: String
-            public let teamAtMoment: String
-        }
     }
 }
