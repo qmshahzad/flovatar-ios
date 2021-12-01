@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		15E2F15926DD07C900FA19BD /* FCLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15E2F15926DD07C900FA19BD /* Flovatar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flovatar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCLDemoApp.swift; sourceTree = "<group>"; };
 		15E2F15E26DD07C900FA19BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15E2F16026DD07CB00FA19BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,9 +33,9 @@
 		439EC1FD272C321D00A30C26 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		439EC201272D1FE200A30C26 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
-		743F377927569E4100F40D6B /* flovatar-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flovatar-ios"; path = ..; sourceTree = "<group>"; };
 		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
 		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
+		74BA9C062757DDB8009A2BED /* flovatar-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flovatar-ios"; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +55,9 @@
 		15E2F15026DD07C900FA19BD = {
 			isa = PBXGroup;
 			children = (
-				743F377827569E4100F40D6B /* Packages */,
+				74BA9C052757DDB8009A2BED /* Packages */,
 				439EC201272D1FE200A30C26 /* Storyboard.storyboard */,
-				15E2F15B26DD07C900FA19BD /* FCLDemo */,
+				15E2F15B26DD07C900FA19BD /* Flovatar */,
 				15E2F15A26DD07C900FA19BD /* Products */,
 				15E2F17226DD0B0600FA19BD /* Frameworks */,
 			);
@@ -66,12 +66,12 @@
 		15E2F15A26DD07C900FA19BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15E2F15926DD07C900FA19BD /* FCLDemo.app */,
+				15E2F15926DD07C900FA19BD /* Flovatar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		15E2F15B26DD07C900FA19BD /* FCLDemo */ = {
+		15E2F15B26DD07C900FA19BD /* Flovatar */ = {
 			isa = PBXGroup;
 			children = (
 				743F37842756B76600F40D6B /* View */,
@@ -85,7 +85,7 @@
 				15E2F16226DD07CB00FA19BD /* Preview Content */,
 				15E2F17526DD133800FA19BD /* ViewModel.swift */,
 			);
-			path = FCLDemo;
+			path = Flovatar;
 			sourceTree = "<group>";
 		};
 		15E2F16226DD07CB00FA19BD /* Preview Content */ = {
@@ -101,14 +101,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		743F377827569E4100F40D6B /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				743F377927569E4100F40D6B /* flovatar-ios */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		743F377A2756A45400F40D6B /* Model */ = {
@@ -127,12 +119,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		74BA9C052757DDB8009A2BED /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				74BA9C062757DDB8009A2BED /* flovatar-ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15E2F15826DD07C900FA19BD /* FCLDemo */ = {
+		15E2F15826DD07C900FA19BD /* Flovatar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15E2F16826DD07CB00FA19BD /* Build configuration list for PBXNativeTarget "FCLDemo" */;
+			buildConfigurationList = 15E2F16826DD07CB00FA19BD /* Build configuration list for PBXNativeTarget "Flovatar" */;
 			buildPhases = (
 				15E2F15526DD07C900FA19BD /* Sources */,
 				15E2F15626DD07C900FA19BD /* Frameworks */,
@@ -142,14 +142,14 @@
 			);
 			dependencies = (
 			);
-			name = FCLDemo;
+			name = Flovatar;
 			packageProductDependencies = (
 				15A074A426FD7FFA00FC1444 /* FCLAuthSwift */,
 				4349C8D4272D52E8001F8295 /* Shimmer */,
 				743F37822756B62A00F40D6B /* Macaw */,
 			);
 			productName = FCLDemo;
-			productReference = 15E2F15926DD07C900FA19BD /* FCLDemo.app */;
+			productReference = 15E2F15926DD07C900FA19BD /* Flovatar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15E2F15426DD07C900FA19BD /* Build configuration list for PBXProject "FCLDemo" */;
+			buildConfigurationList = 15E2F15426DD07C900FA19BD /* Build configuration list for PBXProject "Flovatar" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15E2F15826DD07C900FA19BD /* FCLDemo */,
+				15E2F15826DD07C900FA19BD /* Flovatar */,
 			);
 		};
 /* End PBXProject section */
@@ -342,10 +342,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FCLDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Flovatar/Preview Content\"";
 				DEVELOPMENT_TEAM = 42Y5ADDZL2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FCLDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Flovatar/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,10 +366,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FCLDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Flovatar/Preview Content\"";
 				DEVELOPMENT_TEAM = 42Y5ADDZL2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FCLDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Flovatar/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -386,7 +386,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15E2F15426DD07C900FA19BD /* Build configuration list for PBXProject "FCLDemo" */ = {
+		15E2F15426DD07C900FA19BD /* Build configuration list for PBXProject "Flovatar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E2F16626DD07CB00FA19BD /* Debug */,
@@ -395,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15E2F16826DD07CB00FA19BD /* Build configuration list for PBXNativeTarget "FCLDemo" */ = {
+		15E2F16826DD07CB00FA19BD /* Build configuration list for PBXNativeTarget "Flovatar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E2F16926DD07CB00FA19BD /* Debug */,

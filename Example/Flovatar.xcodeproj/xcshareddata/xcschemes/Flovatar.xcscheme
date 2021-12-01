@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "15E2F15826DD07C900FA19BD"
-               BuildableName = "FCLDemo.app"
-               BlueprintName = "FCLDemo"
-               ReferencedContainer = "container:FCLDemo.xcodeproj">
+               BuildableName = "Flovatar.app"
+               BlueprintName = "Flovatar"
+               ReferencedContainer = "container:Flovatar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "15E2F15826DD07C900FA19BD"
-            BuildableName = "FCLDemo.app"
-            BlueprintName = "FCLDemo"
-            ReferencedContainer = "container:FCLDemo.xcodeproj">
+            BuildableName = "Flovatar.app"
+            BlueprintName = "Flovatar"
+            ReferencedContainer = "container:Flovatar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,9 +90,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "15E2F15826DD07C900FA19BD"
-            BuildableName = "FCLDemo.app"
-            BlueprintName = "FCLDemo"
-            ReferencedContainer = "container:FCLDemo.xcodeproj">
+            BuildableName = "Flovatar.app"
+            BlueprintName = "Flovatar"
+            ReferencedContainer = "container:Flovatar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
