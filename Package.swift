@@ -20,9 +20,5 @@ let package = Package(
             name: "FCLAuthSwift",
             dependencies: []
         ),
-        .testTarget(
-            name: "FCLAuthSwiftTests",
-            dependencies: ["FCLAuthSwift"]
-        ),
     ]
 )
