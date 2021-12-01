@@ -32,7 +32,7 @@ class ViewModel: ObservableObject {
 
     @Published var videoURL: URL? = nil
 
-    @Published var flovatars: [Flovatars] = []
+    @Published var flovatars: [Flovatar] = []
 
     init() {
         fcl.delegate = self
@@ -56,7 +56,6 @@ class ViewModel: ObservableObject {
                 switch result {
                 case let .success(data):
                     self.address = data.address
-                    self.fetchNFTs()
                     self.advance = true
                 case let .failure(error):
                     self.address = error.localizedDescription
@@ -68,14 +67,13 @@ class ViewModel: ObservableObject {
     // https://flovatar.com/collection/api/0x715eba9a0dd9d21a
     // needs to be replaced with blockchain address lookup
     func fetchNFTs() {
-        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + "0x715eba9a0dd9d21a")!)
+        let apiClient = NFTAPIClient(url: URL(string: "https://testnet.flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
 //        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + address)!)
         apiClient.listNFTsForAddress(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
-                    print("")
-//                    self.flovatars = response
+                    self.flovatars = response
                 case let .failure(error):
                     print(error)
                 }

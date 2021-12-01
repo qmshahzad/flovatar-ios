@@ -17,8 +17,6 @@
 //
 import Foundation
 import SwiftUI
-import SDWebImage
-import SDWebImageSVGCoder
 
 // TODO: replace mock API with real API when available
 
@@ -44,7 +42,7 @@ class NFTAPIClient {
         urlSession.resume()
     }
 
-    public func listNFTsForAddress(address: String, completion: @escaping (Result<Flovatars, Error>) -> Void) {
+    public func listNFTsForAddress(address: String, completion: @escaping (Result<[Flovatar], Error>) -> Void) {
         
         let fullURL = URLComponents(url: url, resolvingAgainstBaseURL: false)!
 
@@ -55,16 +53,9 @@ class NFTAPIClient {
             case let .success(data):
                 do {
                     let decoder = JSONDecoder()
-                    let dateFormatter = DateFormatter()
+                    let response = try decoder.decode([Flovatar].self, from: data)
+                    completion(Result.success(response))
 
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
-                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    
-                    let response = try decoder.decode(NFTList.self, from: data)
-//                    completion(Result.success(response))
-                    let _ = print(response)
                 } catch let DecodingError.dataCorrupted(context) {
                     let _ = (context)
                 } catch let DecodingError.keyNotFound(key, context) {
@@ -95,19 +86,4 @@ enum NFTAPIError: String, Error, LocalizedError {
     public var errorDescription: String? {
         return rawValue
     }
-}
-
-struct NFTList: Decodable, Hashable {
-    public let nfts: [Flovatars]
-}
-
-struct NFT: Decodable, Hashable {
-    public let flovatars: Flovatars
-}
-
-struct Flovatars: Decodable, Hashable {
-    public let id: Int
-    public let series: String
-    public let name: String
-    public let svg: String
 }

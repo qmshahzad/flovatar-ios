@@ -12,17 +12,17 @@
 		15E2F16126DD07CB00FA19BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2F16026DD07CB00FA19BD /* Assets.xcassets */; };
 		15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E2F16326DD07CB00FA19BD /* Preview Assets.xcassets */; };
 		15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F17526DD133800FA19BD /* ViewModel.swift */; };
-		43044367272EB78D007FED05 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 43044366272EB78D007FED05 /* SDWebImageSwiftUI */; };
-		4304436A272EB7CA007FED05 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 43044369272EB7CA007FED05 /* SDWebImageSVGCoder */; };
 		4349C8D5272D52E8001F8295 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 4349C8D4272D52E8001F8295 /* Shimmer */; };
 		439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EC1FD272C321D00A30C26 /* DetailView.swift */; };
 		439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439EC201272D1FE200A30C26 /* Storyboard.storyboard */; };
 		67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */; };
 		67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DFFADB26FE8B7B00136000 /* NFTAPI.swift */; };
+		743F37802756A53E00F40D6B /* Flovatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F377F2756A53E00F40D6B /* Flovatar.swift */; };
+		743F37832756B62A00F40D6B /* Macaw in Frameworks */ = {isa = PBXBuildFile; productRef = 743F37822756B62A00F40D6B /* Macaw */; };
+		743F37862756B77000F40D6B /* SVGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F37852756B77000F40D6B /* SVGImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1503AB6F26FD7F2300EA1820 /* fcl-auth-swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "fcl-auth-swift"; path = ..; sourceTree = "<group>"; };
 		15E2F15926DD07C900FA19BD /* FCLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCLDemoApp.swift; sourceTree = "<group>"; };
 		15E2F15E26DD07C900FA19BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +33,9 @@
 		439EC1FD272C321D00A30C26 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		439EC201272D1FE200A30C26 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
+		743F377927569E4100F40D6B /* flovatar-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flovatar-ios"; path = ..; sourceTree = "<group>"; };
+		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
+		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,10 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43044367272EB78D007FED05 /* SDWebImageSwiftUI in Frameworks */,
+				743F37832756B62A00F40D6B /* Macaw in Frameworks */,
 				4349C8D5272D52E8001F8295 /* Shimmer in Frameworks */,
 				15A074A526FD7FFA00FC1444 /* FCLAuthSwift in Frameworks */,
-				4304436A272EB7CA007FED05 /* SDWebImageSVGCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +55,8 @@
 		15E2F15026DD07C900FA19BD = {
 			isa = PBXGroup;
 			children = (
+				743F377827569E4100F40D6B /* Packages */,
 				439EC201272D1FE200A30C26 /* Storyboard.storyboard */,
-				1503AB6F26FD7F2300EA1820 /* fcl-auth-swift */,
 				15E2F15B26DD07C900FA19BD /* FCLDemo */,
 				15E2F15A26DD07C900FA19BD /* Products */,
 				15E2F17226DD0B0600FA19BD /* Frameworks */,
@@ -72,6 +74,8 @@
 		15E2F15B26DD07C900FA19BD /* FCLDemo */ = {
 			isa = PBXGroup;
 			children = (
+				743F37842756B76600F40D6B /* View */,
+				743F377A2756A45400F40D6B /* Model */,
 				67DFFADB26FE8B7B00136000 /* NFTAPI.swift */,
 				15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */,
 				15E2F15E26DD07C900FA19BD /* ContentView.swift */,
@@ -99,6 +103,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		743F377827569E4100F40D6B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				743F377927569E4100F40D6B /* flovatar-ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		743F377A2756A45400F40D6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				743F377F2756A53E00F40D6B /* Flovatar.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		743F37842756B76600F40D6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				743F37852756B77000F40D6B /* SVGImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,8 +146,7 @@
 			packageProductDependencies = (
 				15A074A426FD7FFA00FC1444 /* FCLAuthSwift */,
 				4349C8D4272D52E8001F8295 /* Shimmer */,
-				43044366272EB78D007FED05 /* SDWebImageSwiftUI */,
-				43044369272EB7CA007FED05 /* SDWebImageSVGCoder */,
+				743F37822756B62A00F40D6B /* Macaw */,
 			);
 			productName = FCLDemo;
 			productReference = 15E2F15926DD07C900FA19BD /* FCLDemo.app */;
@@ -150,8 +177,7 @@
 			mainGroup = 15E2F15026DD07C900FA19BD;
 			packageReferences = (
 				4349C8D3272D52E8001F8295 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
-				43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				743F37812756B62A00F40D6B /* XCRemoteSwiftPackageReference "Macaw" */,
 			);
 			productRefGroup = 15E2F15A26DD07C900FA19BD /* Products */;
 			projectDirPath = "";
@@ -180,10 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				743F37802756A53E00F40D6B /* Flovatar.swift in Sources */,
 				67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */,
 				67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */,
 				15E2F15F26DD07C900FA19BD /* ContentView.swift in Sources */,
 				439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */,
+				743F37862756B77000F40D6B /* SVGImage.swift in Sources */,
 				15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,28 +407,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		4349C8D3272D52E8001F8295 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		743F37812756B62A00F40D6B /* XCRemoteSwiftPackageReference "Macaw" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/Macaw";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -410,20 +430,15 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FCLAuthSwift;
 		};
-		43044366272EB78D007FED05 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43044365272EB78D007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
-		43044369272EB7CA007FED05 /* SDWebImageSVGCoder */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43044368272EB7CA007FED05 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
-			productName = SDWebImageSVGCoder;
-		};
 		4349C8D4272D52E8001F8295 /* Shimmer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4349C8D3272D52E8001F8295 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		743F37822756B62A00F40D6B /* Macaw */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 743F37812756B62A00F40D6B /* XCRemoteSwiftPackageReference "Macaw" */;
+			productName = Macaw;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

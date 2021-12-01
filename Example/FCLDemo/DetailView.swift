@@ -21,52 +21,67 @@ import SwiftUI
 import Shimmer
 
 struct DetailView: View {
-    @ObservedObject var viewModel = ViewModel()
-    
-    
+    @StateObject var viewModel = ViewModel()
+    @State var currentSVG: String = ""
+
     let backgroundGradient = LinearGradient(
-        
         gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]),
         startPoint: .top, endPoint: .bottom)
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                        backgroundGradient
-                            .ignoresSafeArea()
-                        Image("beam")
-                            .resizable()
-                            .edgesIgnoringSafeArea(.top)
-                            .scaledToFit()
-                            .shimmering()
+        GeometryReader { proxy in
+            VStack {
+                ZStack(alignment: .bottom) {
+                    VStack {
                         Spacer()
-                        VStack {
-                            NFTs()
-                        }
+
+                        SVGImage(image: currentSVG)
+                            .frame(width: 150, height: 200)
+                            .scaleEffect(2.5, anchor: .center)
                     }
-                    .accentColor(Color.white)
-        }
-        
-    }
+                    .padding(.bottom, 80)
 
+                    Image("Beam")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.top)
+                        .scaledToFill()
+                        .shimmering()
+                }
+                .frame(height: proxy.size.width / 3 * 2)
 
-    fileprivate func NFTs() -> some View {
-        viewModel.fetchNFTs()
-        return Section {
+                Spacer()
 
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: [GridItem()], content: {
-                    ForEach(viewModel.flovatars, id: \.self) { flovatar in
-                        let _ = print(flovatar)
-                    }
-                })
+                nfts
+                    .frame(height: proxy.size.width / 3)
+            }
+            .background(
+                backgroundGradient
+                    .ignoresSafeArea()
+            )
+            .onChange(of: viewModel.flovatars) { newValue in
+                if let svg = newValue.first?.svg {
+                    currentSVG = svg
+                }
             }
         }
+        .onAppear {
+            viewModel.fetchNFTs()
+        }
     }
-}
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView()
+    @ViewBuilder var nfts: some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 0) {
+                ForEach(viewModel.flovatars, id: \.self) { flovatar in
+                    if let svg = flovatar.svg {
+                        SVGImage(image: svg)
+                            .frame(width: 150, height: 200)
+                            .onTapGesture {
+                                currentSVG = svg
+                            }
+                    }
+                }
+            }
+        }
     }
 }
