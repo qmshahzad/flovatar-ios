@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Macaw",
+        "repositoryURL": "https://github.com/exyte/Macaw",
+        "state": {
+          "branch": null,
+          "revision": "d50834811182a86333da721fd3c6731ebd66ad6c",
+          "version": "0.9.9"
+        }
+      },
+      {
         "package": "SwiftUI-Shimmer",
         "repositoryURL": "https://github.com/markiv/SwiftUI-Shimmer",
         "state": {
           "branch": "main",
           "revision": "61411771350a5a4e96666a8a202ae4b2be327a2b",
           "version": null
+        }
+      },
+      {
+        "package": "SWXMLHash",
+        "repositoryURL": "https://github.com/drmohundro/SWXMLHash",
+        "state": {
+          "branch": null,
+          "revision": "6469881a3f30417c5bb02404ea4b69207f297592",
+          "version": "6.0.0"
         }
       }
     ]

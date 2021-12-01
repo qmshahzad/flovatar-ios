@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Beam.png",
+      "filename" : "flovatar-app.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Beam-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -29,29 +29,22 @@ struct ContentView: View {
         
         NavigationView {
             ZStack {
-                    backgroundGradient
+                backgroundGradient
                     .ignoresSafeArea()
-                    VStack {
-                        Image("flovatar-logo").padding(.bottom)
-                        Button("Login with Blocto") {
-                            viewModel.authn(provider: .blocto)
-                        }
-                        .padding()
-                        .background(Color(red: 0.26, green: 0.11, blue: 0.56))
-                        .clipShape(Capsule())
-                        NavigationLink(destination: DetailView().navigationBarBackButtonHidden(true), isActive: $viewModel.advance) { EmptyView() }
+                VStack {
+                    Image("flovatar-logo").padding(.bottom)
+                    Button("Login with Blocto") {
+                        viewModel.authn(provider: .blocto)
                     }
-                    .accentColor(Color.white)
+                    .padding()
+                    .background(Color(red: 0.26, green: 0.11, blue: 0.56))
+                    .clipShape(Capsule())
+                    NavigationLink(destination: DetailView().navigationBarBackButtonHidden(true), isActive: $viewModel.advance) { EmptyView() }
+                }
+                .accentColor(Color.white)
             }
-                        
+
         }
         
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
