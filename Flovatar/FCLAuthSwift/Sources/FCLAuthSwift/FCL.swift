@@ -126,7 +126,7 @@ public final class FCL: NSObject {
             case let .success(result):
                 switch result.status {
                 case .approved:
-                    completion(response)
+                     completion(response)
                 case .declined:
                     completion(Result.failure(FCLError.declined))
                 case .pending:

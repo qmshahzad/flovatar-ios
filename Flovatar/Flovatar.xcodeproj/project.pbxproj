@@ -14,7 +14,6 @@
 		15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F17526DD133800FA19BD /* ViewModel.swift */; };
 		4349C8D5272D52E8001F8295 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 4349C8D4272D52E8001F8295 /* Shimmer */; };
 		439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439EC1FD272C321D00A30C26 /* DetailView.swift */; };
-		439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439EC201272D1FE200A30C26 /* Storyboard.storyboard */; };
 		67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */; };
 		67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DFFADB26FE8B7B00136000 /* NFTAPI.swift */; };
 		743F37802756A53E00F40D6B /* Flovatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F377F2756A53E00F40D6B /* Flovatar.swift */; };
@@ -31,11 +30,10 @@
 		15E2F16526DD07CB00FA19BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E2F17526DD133800FA19BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		439EC1FD272C321D00A30C26 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		439EC201272D1FE200A30C26 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
 		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
 		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
-		74BA9C062757DDB8009A2BED /* flovatar-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "flovatar-ios"; path = ..; sourceTree = "<group>"; };
+		745CBE482759445B0087DC0A /* FCLAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FCLAuthSwift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +53,7 @@
 		15E2F15026DD07C900FA19BD = {
 			isa = PBXGroup;
 			children = (
-				74BA9C052757DDB8009A2BED /* Packages */,
-				439EC201272D1FE200A30C26 /* Storyboard.storyboard */,
+				745CBE472759445B0087DC0A /* Packages */,
 				15E2F15B26DD07C900FA19BD /* Flovatar */,
 				15E2F15A26DD07C900FA19BD /* Products */,
 				15E2F17226DD0B0600FA19BD /* Frameworks */,
@@ -77,13 +74,13 @@
 				743F37842756B76600F40D6B /* View */,
 				743F377A2756A45400F40D6B /* Model */,
 				67DFFADB26FE8B7B00136000 /* NFTAPI.swift */,
+				15E2F17526DD133800FA19BD /* ViewModel.swift */,
 				15E2F15C26DD07C900FA19BD /* FCLDemoApp.swift */,
 				15E2F15E26DD07C900FA19BD /* ContentView.swift */,
 				439EC1FD272C321D00A30C26 /* DetailView.swift */,
 				15E2F16026DD07CB00FA19BD /* Assets.xcassets */,
 				15E2F16526DD07CB00FA19BD /* Info.plist */,
 				15E2F16226DD07CB00FA19BD /* Preview Content */,
-				15E2F17526DD133800FA19BD /* ViewModel.swift */,
 			);
 			path = Flovatar;
 			sourceTree = "<group>";
@@ -119,10 +116,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		74BA9C052757DDB8009A2BED /* Packages */ = {
+		745CBE472759445B0087DC0A /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				74BA9C062757DDB8009A2BED /* flovatar-ios */,
+				745CBE482759445B0087DC0A /* FCLAuthSwift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -194,7 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */,
-				439EC202272D1FE200A30C26 /* Storyboard.storyboard in Resources */,
 				15E2F16126DD07CB00FA19BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

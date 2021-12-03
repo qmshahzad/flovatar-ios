@@ -21,6 +21,8 @@ import SwiftUI
 import Shimmer
 
 struct DetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     @StateObject var viewModel = ViewModel()
     @State var currentSVG: String = ""
 
@@ -64,6 +66,17 @@ struct DetailView: View {
                 }
             }
         }
+        .navigationBarItems(
+            leading: Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "power")
+                    .resizable()
+                    .padding(10)
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color(red: 0.26, green: 0.11, blue: 0.56))
+            }
+        )
         .navigationBarBackButtonHidden(true)
         .onAppear {
             viewModel.fetchNFTs()

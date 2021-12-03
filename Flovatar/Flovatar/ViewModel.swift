@@ -64,11 +64,11 @@ class ViewModel: ObservableObject {
             }
         }
     }
-    // https://flovatar.com/collection/api/0x715eba9a0dd9d21a
+
     // needs to be replaced with blockchain address lookup
     func fetchNFTs() {
-        let apiClient = NFTAPIClient(url: URL(string: "https://testnet.flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
-//        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + address)!)
+        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
+        //        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/" + address)!)
         apiClient.listNFTsForAddress(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
