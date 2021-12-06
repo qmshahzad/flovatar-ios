@@ -39,7 +39,7 @@ struct ContentView: View {
                         .padding(.bottom)
 
                     Button {
-                        viewModel.authn(provider: .blocto)
+                        viewModel.auth(provider: .blocto)
                     } label: {
                         HStack(spacing: 15) {
                             Text("Login with")
@@ -52,6 +52,23 @@ struct ContentView: View {
                     .background(Color(red: 1.00, green: 0.00, blue: 0.98))
                     .clipShape(Capsule())
                     .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 2)
+
+                    Text("or")
+                        .font(Font.custom("Staatliches-Regular", size: 20))
+                        .foregroundColor(Color.white)
+
+                    Button {
+                        viewModel.skipAuth()
+                    } label: {
+                        Text("BROWSE FLOVATARS")
+                            .font(Font.custom("Staatliches-Regular", size: 30))
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .overlay(
+                                Capsule(style: .continuous)
+                                    .stroke(Color.white)
+                            )
+                    }
 
                     NavigationLink(
                         destination: DetailView(),

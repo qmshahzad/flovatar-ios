@@ -65,8 +65,13 @@ class NFTAPIClient {
                     let _ = print("Value '\(value)' not found:", context.debugDescription)
                     let _ = print("codingPath:", context.codingPath)
                 } catch let DecodingError.typeMismatch(type, context)  {
-                    let _ = print("Type '\(type)' mismatch:", context.debugDescription)
-                    let _ = print("codingPath:", context.codingPath)
+                    do {
+                        let decoder = JSONDecoder()
+                        let response = try decoder.decode(PaginatedResponse<Flovatar>.self, from: data)
+                        completion(Result.success(response.data))
+                    } catch {
+                        
+                    }
                 } catch {
                     let _ = print("error: ", error)
                 } catch {

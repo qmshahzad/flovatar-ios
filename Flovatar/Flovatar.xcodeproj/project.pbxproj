@@ -19,6 +19,7 @@
 		743F37802756A53E00F40D6B /* Flovatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F377F2756A53E00F40D6B /* Flovatar.swift */; };
 		743F37832756B62A00F40D6B /* Macaw in Frameworks */ = {isa = PBXBuildFile; productRef = 743F37822756B62A00F40D6B /* Macaw */; };
 		743F37862756B77000F40D6B /* SVGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F37852756B77000F40D6B /* SVGImage.swift */; };
+		7448E84C275EABC6005BEB38 /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */; };
 		74C869B9275E17BE004DD53E /* Staatliches-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */; };
 		74C869BB275E1BD3004DD53E /* BoosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C869BA275E1BD3004DD53E /* BoosterView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
 		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
 		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
+		7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
 		745CBE482759445B0087DC0A /* FCLAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FCLAuthSwift; sourceTree = "<group>"; };
 		74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Staatliches-Regular.ttf"; sourceTree = "<group>"; };
 		74C869BA275E1BD3004DD53E /* BoosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				743F377F2756A53E00F40D6B /* Flovatar.swift */,
+				7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				743F37802756A53E00F40D6B /* Flovatar.swift in Sources */,
 				67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */,
+				7448E84C275EABC6005BEB38 /* PaginatedResponse.swift in Sources */,
 				67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */,
 				15E2F15F26DD07C900FA19BD /* ContentView.swift in Sources */,
 				439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */,

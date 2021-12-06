@@ -24,7 +24,7 @@ struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode
 
     @StateObject var viewModel = ViewModel()
-    @State var currentSVG: String = ""
+    @State var currentFlovatar: Flovatar?
     @State var opacity: Double = 0
     @State var isMenuExpanded: Bool = false
 
@@ -40,9 +40,11 @@ struct DetailView: View {
                         VStack {
                             Spacer()
 
-                            SVGImage(image: currentSVG)
-                                .frame(width: 150, height: 200)
-                                .scaleEffect(2.5, anchor: .center)
+                            if let svg = currentFlovatar?.svg {
+                                SVGImage(image: svg)
+                                    .frame(width: 150, height: 200)
+                                    .scaleEffect(2.5, anchor: .center)
+                            }
                         }
                         .padding(.bottom, 80)
 
@@ -52,13 +54,17 @@ struct DetailView: View {
                     }
                     .frame(height: proxy.size.height / 3 * 2)
 
-                    Text("FLOVATAR NAME")
-                        .foregroundColor(.white)
-                        .font(Font.custom("Staatliches-Regular", size: 30))
-                        .padding()
+                    if let currentFlovatar = currentFlovatar, let name = currentFlovatar.name, !name.isEmpty {
+                        Text("name")
+                            .foregroundColor(.white)
+                            .font(Font.custom("Staatliches-Regular", size: 30))
+                            .padding()
+                    }
 
-                    boosters
-                        .frame(height: 60)
+                    if let _ = currentFlovatar {
+                        boosters
+                            .frame(height: 60)
+                    }
 
                     Spacer()
 
@@ -69,9 +75,7 @@ struct DetailView: View {
                         .ignoresSafeArea()
                 )
                 .onChange(of: viewModel.flovatars) { newValue in
-                    if let svg = newValue.first?.svg {
-                        currentSVG = svg
-                    }
+                    currentFlovatar = newValue.first
                 }
 
                 Color.black
@@ -115,11 +119,11 @@ struct DetailView: View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: 0) {
                 ForEach(viewModel.flovatars, id: \.self) { flovatar in
-                    if let svg = flovatar.svg {
+                    if let svg = flovatar.svg, !svg.isEmpty {
                         SVGImage(image: svg)
                             .frame(width: 150, height: 200)
                             .onTapGesture {
-                                currentSVG = svg
+                                currentFlovatar = flovatar
                             }
                     }
                 }
