@@ -25,6 +25,8 @@ struct DetailView: View {
 
     @StateObject var viewModel = ViewModel()
     @State var currentSVG: String = ""
+    @State var opacity: Double = 0
+    @State var isMenuExpanded: Bool = false
 
     let backgroundGradient = LinearGradient(
         gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]),
@@ -32,49 +34,75 @@ struct DetailView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            VStack {
-                ZStack(alignment: .bottom) {
-                    VStack {
-                        Spacer()
+            ZStack(alignment: .top) {
+                VStack {
+                    ZStack(alignment: .bottom) {
+                        VStack {
+                            Spacer()
 
-                        SVGImage(image: currentSVG)
-                            .frame(width: 150, height: 200)
-                            .scaleEffect(2.5, anchor: .center)
+                            SVGImage(image: currentSVG)
+                                .frame(width: 150, height: 200)
+                                .scaleEffect(2.5, anchor: .center)
+                        }
+                        .padding(.bottom, 80)
+
+                        Image("Beam")
+                            .resizable()
+                            .shimmering()
                     }
-                    .padding(.bottom, 80)
+                    .frame(height: proxy.size.height / 3 * 2)
 
-                    Image("Beam")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.top)
-                        .scaledToFill()
-                        .shimmering()
+                    Text("FLOVATAR NAME")
+                        .foregroundColor(.white)
+                        .font(Font.custom("Staatliches-Regular", size: 30))
+                        .padding()
+
+                    boosters
+                        .frame(height: 60)
+
+                    Spacer()
+
+                    nfts
                 }
-                .frame(height: proxy.size.width / 3 * 2)
+                .background(
+                    backgroundGradient
+                        .ignoresSafeArea()
+                )
+                .onChange(of: viewModel.flovatars) { newValue in
+                    if let svg = newValue.first?.svg {
+                        currentSVG = svg
+                    }
+                }
 
-                Spacer()
-
-                nfts
-                    .frame(height: proxy.size.width / 3)
-            }
-            .background(
-                backgroundGradient
+                Color.black
+                    .opacity(isMenuExpanded ? 0.4 : 0)
                     .ignoresSafeArea()
-            )
-            .onChange(of: viewModel.flovatars) { newValue in
-                if let svg = newValue.first?.svg {
-                    currentSVG = svg
-                }
+                    .onTapGesture {
+                        withAnimation(Animation.easeIn(duration: 0.3)) {
+                            isMenuExpanded = false
+                        }
+                    }
+
+                topMenu
+            }
+        }
+        .edgesIgnoringSafeArea(.top)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image("flovatar-logo-small")
             }
         }
         .navigationBarItems(
-            leading: Button {
-                presentationMode.wrappedValue.dismiss()
+            trailing: Button {
+                withAnimation(Animation.easeIn(duration: 0.3)) {
+                    isMenuExpanded = !isMenuExpanded
+                }
             } label: {
-                Image(systemName: "power")
+                Image(systemName: isMenuExpanded ? "multiply" : "line.horizontal.3")
                     .resizable()
                     .padding(10)
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(Color(red: 0.26, green: 0.11, blue: 0.56))
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(.white)
             }
         )
         .navigationBarBackButtonHidden(true)
@@ -97,5 +125,38 @@ struct DetailView: View {
                 }
             }
         }
+    }
+
+    @ViewBuilder var boosters: some View {
+        HStack(spacing: 15) {
+            BoosterView(imageName: "booster_1", name: "1")
+            BoosterView(imageName: "booster_2", name: "5")
+            BoosterView(imageName: "booster_3", name: "3")
+            BoosterView(imageName: "booster_4", name: "6")
+        }
+    }
+
+    @ViewBuilder var topMenu: some View {
+        ZStack {
+            Color(red: 0.26, green: 0.11, blue: 0.56)
+                .opacity(isMenuExpanded ? 1 : 0)
+
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack {
+                    Image(systemName: "")
+                    Text("LOGOUT")
+                        .foregroundColor(.white)
+                        .font(Font.custom("Staatliches-Regular", size: 30))
+                }
+            }
+            .padding(.top, 100)
+            .opacity(isMenuExpanded ? 1 : 0)
+
+        }
+        .clipped()
+        .edgesIgnoringSafeArea(.top)
+        .frame(height: isMenuExpanded ? 250 : 0)
     }
 }

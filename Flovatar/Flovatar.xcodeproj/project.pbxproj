@@ -19,6 +19,8 @@
 		743F37802756A53E00F40D6B /* Flovatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F377F2756A53E00F40D6B /* Flovatar.swift */; };
 		743F37832756B62A00F40D6B /* Macaw in Frameworks */ = {isa = PBXBuildFile; productRef = 743F37822756B62A00F40D6B /* Macaw */; };
 		743F37862756B77000F40D6B /* SVGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F37852756B77000F40D6B /* SVGImage.swift */; };
+		74C869B9275E17BE004DD53E /* Staatliches-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */; };
+		74C869BB275E1BD3004DD53E /* BoosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C869BA275E1BD3004DD53E /* BoosterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
 		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
 		745CBE482759445B0087DC0A /* FCLAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FCLAuthSwift; sourceTree = "<group>"; };
+		74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Staatliches-Regular.ttf"; sourceTree = "<group>"; };
+		74C869BA275E1BD3004DD53E /* BoosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				439EC1FD272C321D00A30C26 /* DetailView.swift */,
 				15E2F16026DD07CB00FA19BD /* Assets.xcassets */,
 				15E2F16526DD07CB00FA19BD /* Info.plist */,
+				74C869B6275E17BE004DD53E /* Resources */,
 				15E2F16226DD07CB00FA19BD /* Preview Content */,
 			);
 			path = Flovatar;
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				743F37852756B77000F40D6B /* SVGImage.swift */,
+				74C869BA275E1BD3004DD53E /* BoosterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +128,22 @@
 				745CBE482759445B0087DC0A /* FCLAuthSwift */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		74C869B6275E17BE004DD53E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74C869B7275E17BE004DD53E /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		74C869B7275E17BE004DD53E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C869B9275E17BE004DD53E /* Staatliches-Regular.ttf in Resources */,
 				15E2F16426DD07CB00FA19BD /* Preview Assets.xcassets in Resources */,
 				15E2F16126DD07CB00FA19BD /* Assets.xcassets in Resources */,
 			);
@@ -207,6 +230,7 @@
 				67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */,
 				15E2F15F26DD07C900FA19BD /* ContentView.swift in Sources */,
 				439EC1FE272C321D00A30C26 /* DetailView.swift in Sources */,
+				74C869BB275E1BD3004DD53E /* BoosterView.swift in Sources */,
 				743F37862756B77000F40D6B /* SVGImage.swift in Sources */,
 				15E2F17626DD133800FA19BD /* ViewModel.swift in Sources */,
 			);
