@@ -26,6 +26,7 @@ struct DetailView: View {
     @StateObject var viewModel = ViewModel()
     @State var currentFlovatar: Flovatar?
     @State var opacity: Double = 0
+    @State var activeTab: Int = 0
     @State var isMenuExpanded: Bool = false
 
     let backgroundGradient = LinearGradient(
@@ -40,18 +41,14 @@ struct DetailView: View {
                         VStack {
                             Spacer()
 
-                            if let svg = currentFlovatar?.svg {
-                                SVGImage(image: svg)
-                                    .frame(width: 150, height: 200)
-                                    .scaleEffect(2.5, anchor: .center)
-                            }
+                            flovatarsCarousel
                         }
-                        .padding(.bottom, 80)
 
                         Image("Beam")
                             .resizable()
                             .padding(.horizontal)
                             .shimmering()
+                            .allowsHitTesting(false)
                     }
                     .frame(height: proxy.size.height / 3 * 2)
 
@@ -117,17 +114,25 @@ struct DetailView: View {
     }
 
     @ViewBuilder var nfts: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: 0) {
-                ForEach(viewModel.flovatars, id: \.self) { flovatar in
-                    if let svg = flovatar.svg, !svg.isEmpty {
-                        SVGImage(image: svg)
-                            .frame(width: 150, height: 200)
-                            .onTapGesture {
-                                currentFlovatar = flovatar
-                            }
+        ScrollView(.horizontal, showsIndicators: false) {
+            ScrollViewReader { value in
+                LazyHStack(spacing: 0) {
+                    ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
+                        if let svg = flovatar.svg, !svg.isEmpty {
+                            SVGImage(image: svg)
+                                .frame(width: 150, height: 200)
+                                .onTapGesture {
+                                    currentFlovatar = flovatar
+                                }
+                                .id(index)
+                        }
                     }
                 }
+                .onChange(of: activeTab, perform: { index in
+                    withAnimation {
+                        value.scrollTo(index, anchor: .center)
+                    }
+                })
             }
         }
     }
@@ -162,5 +167,27 @@ struct DetailView: View {
         .clipped()
         .edgesIgnoringSafeArea(.top)
         .frame(height: isMenuExpanded ? 250 : 0)
+    }
+
+    @ViewBuilder var flovatarsCarousel: some View {
+        if !viewModel.flovatars.isEmpty {
+            TabView(selection: $activeTab) {
+                ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
+                    if let svg = flovatar.svg, !svg.isEmpty {
+                        SVGImage(image: svg)
+                            .frame(width: 150, height: 200)
+                            .onTapGesture {
+                                currentFlovatar = flovatar
+                            }
+                            .scaleEffect(2.7, anchor: .center)
+                            .tag(index)
+                    }
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onChange(of: activeTab, perform: { index in
+                currentFlovatar = viewModel.flovatars[index]
+            })
+        }
     }
 }
