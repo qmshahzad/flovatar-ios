@@ -14,6 +14,8 @@ struct Flovatar: Decodable, Hashable {
     var flowAddress: String?
     var svg: String?
 
+    let boosters: [Int] = [Int.random(in: 1..<10), Int.random(in: 1..<10), Int.random(in: 1..<10)]
+
     enum CodingKeys: String, CodingKey {
         case id, name
         case flowID = "flow_id"

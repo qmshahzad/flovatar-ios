@@ -53,22 +53,19 @@ struct ContentView: View {
                     .clipShape(Capsule())
                     .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 2)
 
-                    Text("or")
-                        .font(Font.custom("Staatliches-Regular", size: 20))
-                        .foregroundColor(Color.white)
-
                     Button {
                         viewModel.skipAuth()
                     } label: {
                         Text("BROWSE FLOVATARS")
                             .font(Font.custom("Staatliches-Regular", size: 30))
                             .foregroundColor(Color.white)
-                            .padding()
+                            .padding(10)
                             .overlay(
                                 Capsule(style: .continuous)
                                     .stroke(Color.white)
                             )
                     }
+                    .padding(.top)
 
                     NavigationLink(
                         destination: DetailView(),

@@ -50,6 +50,7 @@ struct DetailView: View {
 
                         Image("Beam")
                             .resizable()
+                            .padding(.horizontal)
                             .shimmering()
                     }
                     .frame(height: proxy.size.height / 3 * 2)
@@ -61,8 +62,8 @@ struct DetailView: View {
                             .padding()
                     }
 
-                    if let _ = currentFlovatar {
-                        boosters
+                    if let currentFlovatar = currentFlovatar {
+                        boostersView(flovatar: currentFlovatar)
                             .frame(height: 60)
                     }
 
@@ -131,12 +132,11 @@ struct DetailView: View {
         }
     }
 
-    @ViewBuilder var boosters: some View {
+    @ViewBuilder func boostersView(flovatar: Flovatar) -> some View {
         HStack(spacing: 15) {
-            BoosterView(imageName: "booster_1", name: "1")
-            BoosterView(imageName: "booster_2", name: "5")
-            BoosterView(imageName: "booster_3", name: "3")
-            BoosterView(imageName: "booster_4", name: "6")
+            ForEach(Array(flovatar.boosters.enumerated()), id: \.offset) { index, booster in
+                BoosterView(imageName: "booster_\(index + 1)", name: "\(booster)")
+            }
         }
     }
 
@@ -150,7 +150,7 @@ struct DetailView: View {
             } label: {
                 HStack {
                     Image(systemName: "")
-                    Text("LOGOUT")
+                    Text(viewModel.address.isEmpty ? "LOGIN" : "LOGOUT")
                         .foregroundColor(.white)
                         .font(Font.custom("Staatliches-Regular", size: 30))
                 }
