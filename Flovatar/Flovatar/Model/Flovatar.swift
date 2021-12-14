@@ -13,13 +13,17 @@ struct Flovatar: Decodable, Hashable {
     var flowID: Int
     var flowAddress: String?
     var svg: String?
-
-    let boosters: [Int] = [Int.random(in: 1..<10), Int.random(in: 1..<10), Int.random(in: 1..<10)]
+    var rareCount: Int = 0
+    var legendaryCount: Int = 0
+    var epicCount: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case id, name
         case flowID = "flow_id"
         case flowAddress = "flow_address"
         case svg = "full_svg"
+        case rareCount = "rare_count"
+        case legendaryCount = "legendary_count"
+        case epicCount = "epic_count"
     }
 }

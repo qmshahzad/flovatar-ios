@@ -139,9 +139,9 @@ struct DetailView: View {
 
     @ViewBuilder func boostersView(flovatar: Flovatar) -> some View {
         HStack(spacing: 15) {
-            ForEach(Array(flovatar.boosters.enumerated()), id: \.offset) { index, booster in
-                BoosterView(imageName: "booster_\(index + 1)", name: "\(booster)")
-            }
+            BoosterView(imageName: "booster_1", name: "\(flovatar.rareCount)")
+            BoosterView(imageName: "booster_2", name: "\(flovatar.legendaryCount)")
+            BoosterView(imageName: "booster_3", name: "\(flovatar.epicCount)")
         }
     }
 
@@ -179,7 +179,8 @@ struct DetailView: View {
                             .onTapGesture {
                                 currentFlovatar = flovatar
                             }
-                            .scaleEffect(2.7, anchor: .center)
+                            .scaleEffect(3.25, anchor: .center)
+                            .padding(.bottom)
                             .tag(index)
                     }
                 }

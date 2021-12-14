@@ -36,8 +36,8 @@
 		67DFFADB26FE8B7B00136000 /* NFTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAPI.swift; sourceTree = "<group>"; };
 		743F377F2756A53E00F40D6B /* Flovatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flovatar.swift; sourceTree = "<group>"; };
 		743F37852756B77000F40D6B /* SVGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImage.swift; sourceTree = "<group>"; };
+		74472A9C276924AE00E42883 /* FCLAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FCLAuthSwift; sourceTree = "<group>"; };
 		7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
-		745CBE482759445B0087DC0A /* FCLAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FCLAuthSwift; sourceTree = "<group>"; };
 		74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Staatliches-Regular.ttf"; sourceTree = "<group>"; };
 		74C869BA275E1BD3004DD53E /* BoosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,7 +59,7 @@
 		15E2F15026DD07C900FA19BD = {
 			isa = PBXGroup;
 			children = (
-				745CBE472759445B0087DC0A /* Packages */,
+				74472A9B276924AE00E42883 /* Packages */,
 				15E2F15B26DD07C900FA19BD /* Flovatar */,
 				15E2F15A26DD07C900FA19BD /* Products */,
 				15E2F17226DD0B0600FA19BD /* Frameworks */,
@@ -125,10 +125,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		745CBE472759445B0087DC0A /* Packages */ = {
+		74472A9B276924AE00E42883 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				745CBE482759445B0087DC0A /* FCLAuthSwift */,
+				74472A9C276924AE00E42883 /* FCLAuthSwift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
