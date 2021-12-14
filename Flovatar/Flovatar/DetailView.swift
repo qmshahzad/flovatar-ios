@@ -23,7 +23,7 @@ import Shimmer
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @StateObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     @State var currentFlovatar: Flovatar?
     @State var opacity: Double = 0
     @State var activeTab: Int = 0
@@ -151,6 +151,7 @@ struct DetailView: View {
                 .opacity(isMenuExpanded ? 1 : 0)
 
             Button {
+                viewModel.logout()
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 HStack {

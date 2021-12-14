@@ -68,7 +68,7 @@ struct ContentView: View {
                     .padding(.top)
 
                     NavigationLink(
-                        destination: DetailView(),
+                        destination: DetailView(viewModel: viewModel),
                         isActive: $viewModel.advance
                     ) { EmptyView() }
                 }
