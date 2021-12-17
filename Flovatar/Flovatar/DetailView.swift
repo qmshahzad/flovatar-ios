@@ -123,6 +123,7 @@ struct DetailView: View {
                                 .frame(width: 150, height: 200)
                                 .onTapGesture {
                                     currentFlovatar = flovatar
+                                    activeTab = index
                                 }
                                 .id(index)
                         }

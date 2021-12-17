@@ -72,7 +72,11 @@ class ViewModel: ObservableObject {
     // needs to be replaced with blockchain address lookup
     func fetchNFTs() {
         //        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
-        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x" + address)!)
+        let apiClient = NFTAPIClient(
+            url: URL(
+                string: "https://flovatar.com/collection/api/" + (address.isEmpty ? "" : "0x\(address)")
+            )!
+        )
         apiClient.listNFTsForAddress(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
