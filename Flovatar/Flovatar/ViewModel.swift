@@ -33,7 +33,11 @@ class ViewModel: ObservableObject {
     @Published var videoURL: URL? = nil
 
     @Published var flovatars: [Flovatar] = []
-
+    
+    @Published var isLoadingNextPage: Bool = false
+    
+    private var loadedPageNumber: Int = 1
+    
     init() {
         fcl.delegate = self
 
@@ -70,27 +74,49 @@ class ViewModel: ObservableObject {
     }
 
     // needs to be replaced with blockchain address lookup
-    func fetchNFTs() {
-        //        let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
+    func fetchNFTs(pageNumber: Int = 1) {
+        // let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
+        
         let apiClient = NFTAPIClient(
             url: URL(
-                string: "https://flovatar.com/collection/api/" + (address.isEmpty ? "" : "0x\(address)")
+                string: "https://flovatar.com/collection/api?page=\(pageNumber)/" + (address.isEmpty ? "" : "0x\(address)")
             )!
         )
         apiClient.listNFTsForAddress(address: address) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
-                    self.flovatars = response
+                    self.loadedPageNumber = response.currentPage
+                    self.flovatars.append(contentsOf: response.data)
+                    self.isLoadingNextPage = false
                 case let .failure(error):
                     print(error)
                 }
             }
         }
     }
-
+    
     func logout() {
         self.address = ""
+    }
+    
+    func loadNextPage(currentIndex: Int) {
+        if shouldLoadNextPage(currentIndex: currentIndex) {
+            isLoadingNextPage = true
+            fetchNFTs(pageNumber: loadedPageNumber + 1)
+        }
+    }
+    
+    private func shouldLoadNextPage(currentIndex: Int) -> Bool {
+        
+        var result: Bool = false
+        let numFromEnd: Int = 3
+        
+        if flovatars.count > numFromEnd && currentIndex >= flovatars.count - numFromEnd {
+            result = true
+        }
+        
+        return result
     }
 }
 

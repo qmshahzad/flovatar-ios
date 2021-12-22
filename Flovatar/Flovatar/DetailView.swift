@@ -125,8 +125,20 @@ struct DetailView: View {
                                     currentFlovatar = flovatar
                                     activeTab = index
                                 }
+                                .onAppear {
+                                    viewModel.loadNextPage(currentIndex: index)
+                                }
                                 .id(index)
                         }
+                    }
+                    
+                    if viewModel.isLoadingNextPage {
+                        ZStack {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                                .scaleEffect(2)
+                        }
+                        .frame(width: 150, height: 200)
                     }
                 }
                 .onChange(of: activeTab, perform: { index in
