@@ -22,6 +22,7 @@
 		7448E84C275EABC6005BEB38 /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */; };
 		74C869B9275E17BE004DD53E /* Staatliches-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */; };
 		74C869BB275E1BD3004DD53E /* BoosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C869BA275E1BD3004DD53E /* BoosterView.swift */; };
+		D02A4CD2277B439A00C9048D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02A4CD1277B439A00C9048D /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7448E84B275EABC6005BEB38 /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
 		74C869B8275E17BE004DD53E /* Staatliches-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Staatliches-Regular.ttf"; sourceTree = "<group>"; };
 		74C869BA275E1BD3004DD53E /* BoosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterView.swift; sourceTree = "<group>"; };
+		D02A4CD1277B439A00C9048D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				743F37852756B77000F40D6B /* SVGImage.swift */,
+				D02A4CD1277B439A00C9048D /* WebView.swift */,
 				74C869BA275E1BD3004DD53E /* BoosterView.swift */,
 			);
 			path = View;
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				743F37802756A53E00F40D6B /* Flovatar.swift in Sources */,
+				D02A4CD2277B439A00C9048D /* WebView.swift in Sources */,
 				67DFFADA26FE8A7000136000 /* FCLDemoApp.swift in Sources */,
 				7448E84C275EABC6005BEB38 /* PaginatedResponse.swift in Sources */,
 				67DFFADD26FE8B7B00136000 /* NFTAPI.swift in Sources */,

@@ -79,7 +79,7 @@ class ViewModel: ObservableObject {
         
         let apiClient = NFTAPIClient(
             url: URL(
-                string: "https://flovatar.com/collection/api?page=\(pageNumber)/" + (address.isEmpty ? "" : "0x\(address)")
+                string: "https://flovatar.com/collection/api?page=\(pageNumber)" + (address.isEmpty ? "" : "/0x\(address)")
             )!
         )
         apiClient.listNFTsForAddress(address: address) { result in
@@ -98,6 +98,10 @@ class ViewModel: ObservableObject {
     
     func logout() {
         self.address = ""
+    }
+    
+    func isAnimatable(svg: String) -> Bool {
+        svg.contains("animateTransform")
     }
     
     func loadNextPage(currentIndex: Int) {

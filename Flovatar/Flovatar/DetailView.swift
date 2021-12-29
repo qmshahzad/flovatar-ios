@@ -49,6 +49,7 @@ struct DetailView: View {
                             .padding(.horizontal)
                             .shimmering()
                             .allowsHitTesting(false)
+
                     }
                     .frame(height: proxy.size.height / 3 * 2)
 
@@ -112,15 +113,14 @@ struct DetailView: View {
             viewModel.fetchNFTs()
         }
     }
-
+    
     @ViewBuilder var nfts: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { value in
                 LazyHStack(spacing: 0) {
                     ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
                         if let svg = flovatar.svg, !svg.isEmpty {
-                            SVGImage(image: svg)
-                                .frame(width: 150, height: 200)
+                            FlovatarView(svg: svg)
                                 .onTapGesture {
                                     currentFlovatar = flovatar
                                     activeTab = index
@@ -188,13 +188,11 @@ struct DetailView: View {
             TabView(selection: $activeTab) {
                 ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
                     if let svg = flovatar.svg, !svg.isEmpty {
-                        SVGImage(image: svg)
-                            .frame(width: 150, height: 200)
+                        WebView(image: svg, isLoading: .constant(true))
+                            .frame(height: 500)
                             .onTapGesture {
                                 currentFlovatar = flovatar
                             }
-                            .scaleEffect(3.25, anchor: .center)
-                            .padding(.bottom)
                             .tag(index)
                     }
                 }
@@ -204,5 +202,38 @@ struct DetailView: View {
                 currentFlovatar = viewModel.flovatars[index]
             })
         }
+    }
+}
+
+struct FlovatarView: View {
+
+    let svg: String
+    @State private var isLoading: Bool = true
+
+    var body: some View {
+        ZStack {
+            SVGImage(image: svg)
+                .frame(width: 250, height: 200)
+                .padding(.horizontal, -20)
+                .opacity(isLoading ? 1 : 0)
+                .onAppear {
+                    print(#fileID, #line, "SVGImage", isLoading)
+                }
+
+            if isAnimatable(svg: svg) {
+                WebView(image: svg, isLoading: $isLoading)
+                    .frame(width: 250, height: 200)
+                    .padding(.horizontal, -20)
+                    .onAppear {
+                        print(#fileID, #line, "WebView", isLoading)
+                    }
+                    .opacity(!isLoading ? 1 : 0)
+                
+            }
+        }
+    }
+
+    private func isAnimatable(svg: String) -> Bool {
+        svg.contains("animateTransform")
     }
 }

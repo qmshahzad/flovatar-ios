@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Macaw
+import UIKit
 
 struct SVGImage: UIViewRepresentable {
     // a binding allows for dynamic updates to the shown image
@@ -24,14 +25,13 @@ struct SVGImage: UIViewRepresentable {
     func makeUIView(context: Context) -> SVGView {
         let svgView = SVGView()
         svgView.backgroundColor = UIColor(white: 1.0, alpha: 0.0) // otherwise the background is black
-        svgView.contentScaleFactor = 2
         return svgView
     }
 
     func updateUIView(_ uiView: SVGView, context: Context) {
         DispatchQueue.global(qos: .userInitiated).async {
             let svg = (try? SVGParser.parse(text: image)) ?? Group()
-
+        
             DispatchQueue.main.async {
                 uiView.node = svg
             }
