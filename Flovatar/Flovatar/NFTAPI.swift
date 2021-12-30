@@ -42,7 +42,7 @@ class NFTAPIClient {
         urlSession.resume()
     }
 
-    public func listNFTsForAddress(address: String, completion: @escaping (Result<[Flovatar], Error>) -> Void) {
+    public func listNFTsForAddress(address: String, completion: @escaping (Result<PaginatedResponse<Flovatar>, Error>) -> Void) {
         
         let fullURL = URLComponents(url: url, resolvingAgainstBaseURL: false)!
 
@@ -52,10 +52,11 @@ class NFTAPIClient {
             switch result {
             case let .success(data):
                 do {
+                    
                     let decoder = JSONDecoder()
-                    let response = try decoder.decode([Flovatar].self, from: data)
+                    let response = try decoder.decode(PaginatedResponse<Flovatar>.self, from: data)
                     completion(Result.success(response))
-
+                    
                 } catch let DecodingError.dataCorrupted(context) {
                     let _ = (context)
                 } catch let DecodingError.keyNotFound(key, context) {
@@ -68,14 +69,14 @@ class NFTAPIClient {
                     do {
                         let decoder = JSONDecoder()
                         let response = try decoder.decode(PaginatedResponse<Flovatar>.self, from: data)
-                        completion(Result.success(response.data))
+                        completion(Result.success(response))
                     } catch {
                         
                     }
                 } catch {
                     let _ = print("error: ", error)
                 } catch {
-//                    completion(Result.failure(NFTAPIError.invalidResponse))
+                    // completion(Result.failure(NFTAPIError.invalidResponse))
                 }
             case let .failure(error):
                 print(error)
