@@ -22,13 +22,13 @@ import Shimmer
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     @ObservedObject var viewModel: ViewModel
     @State var currentFlovatar: Flovatar?
     @State var opacity: Double = 0
     @State var activeTab: Int = 0
     @State var isMenuExpanded: Bool = false
-
+    
     let backgroundGradient = LinearGradient(
         gradient: Gradient(colors: [Color(red: 1.00, green: 0.00, blue: 0.98), Color(red: 0.26, green: 0.11, blue: 0.56)]),
         startPoint: .top, endPoint: .bottom)
@@ -40,33 +40,33 @@ struct DetailView: View {
                     ZStack(alignment: .bottom) {
                         VStack {
                             Spacer()
-
+                            
                             flovatarsCarousel
                         }
-
+                        
                         Image("Beam")
                             .resizable()
                             .padding(.horizontal)
                             .shimmering()
                             .allowsHitTesting(false)
-
+                        
                     }
                     .frame(height: proxy.size.height / 3 * 2)
-
+                    
                     if let currentFlovatar = currentFlovatar, let name = currentFlovatar.name, !name.isEmpty {
                         Text("name")
                             .foregroundColor(.white)
                             .font(Font.custom("Staatliches-Regular", size: 30))
                             .padding()
                     }
-
+                    
                     if let currentFlovatar = currentFlovatar {
                         boostersView(flovatar: currentFlovatar)
                             .frame(height: 60)
                     }
-
+                    
                     Spacer()
-
+                    
                     nfts
                 }
                 .background(
@@ -76,7 +76,7 @@ struct DetailView: View {
                 .onChange(of: viewModel.flovatars) { newValue in
                     currentFlovatar = newValue.first
                 }
-
+                
                 Color.black
                     .opacity(isMenuExpanded ? 0.4 : 0)
                     .ignoresSafeArea()
@@ -85,7 +85,7 @@ struct DetailView: View {
                             isMenuExpanded = false
                         }
                     }
-
+                
                 topMenu
             }
         }
@@ -120,13 +120,14 @@ struct DetailView: View {
                 LazyHStack(spacing: 0) {
                     ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
                         if let svg = flovatar.svg, !svg.isEmpty {
-                            FlovatarView(svg: svg)
+                            SVGImage(image: svg)
+                                .frame(width: 150, height: 200)
                                 .onTapGesture {
                                     currentFlovatar = flovatar
                                     activeTab = index
                                 }
                                 .onAppear {
-                                    viewModel.loadNextPage(currentIndex: index)
+                                    viewModel.current(index: index)
                                 }
                                 .id(index)
                         }
@@ -149,7 +150,7 @@ struct DetailView: View {
             }
         }
     }
-
+    
     @ViewBuilder func boostersView(flovatar: Flovatar) -> some View {
         HStack(spacing: 15) {
             BoosterView(imageName: "booster_1", name: "\(flovatar.rareCount)")
@@ -157,12 +158,12 @@ struct DetailView: View {
             BoosterView(imageName: "booster_3", name: "\(flovatar.epicCount)")
         }
     }
-
+    
     @ViewBuilder var topMenu: some View {
         ZStack {
             Color(red: 0.26, green: 0.11, blue: 0.56)
                 .opacity(isMenuExpanded ? 1 : 0)
-
+            
             Button {
                 viewModel.logout()
                 presentationMode.wrappedValue.dismiss()
@@ -176,20 +177,20 @@ struct DetailView: View {
             }
             .padding(.top, 100)
             .opacity(isMenuExpanded ? 1 : 0)
-
+            
         }
         .clipped()
         .edgesIgnoringSafeArea(.top)
         .frame(height: isMenuExpanded ? 250 : 0)
     }
-
+    
     @ViewBuilder var flovatarsCarousel: some View {
         if !viewModel.flovatars.isEmpty {
             TabView(selection: $activeTab) {
                 ForEach(Array(viewModel.flovatars.enumerated()), id: \.offset) { index, flovatar in
                     if let svg = flovatar.svg, !svg.isEmpty {
-                        WebView(image: svg, isLoading: .constant(true))
-                            .frame(height: 500)
+                        WebView(image: svg)
+                            .padding(.bottom, -50)
                             .onTapGesture {
                                 currentFlovatar = flovatar
                             }
@@ -202,38 +203,5 @@ struct DetailView: View {
                 currentFlovatar = viewModel.flovatars[index]
             })
         }
-    }
-}
-
-struct FlovatarView: View {
-
-    let svg: String
-    @State private var isLoading: Bool = true
-
-    var body: some View {
-        ZStack {
-            SVGImage(image: svg)
-                .frame(width: 250, height: 200)
-                .padding(.horizontal, -20)
-                .opacity(isLoading ? 1 : 0)
-                .onAppear {
-                    print(#fileID, #line, "SVGImage", isLoading)
-                }
-
-            if isAnimatable(svg: svg) {
-                WebView(image: svg, isLoading: $isLoading)
-                    .frame(width: 250, height: 200)
-                    .padding(.horizontal, -20)
-                    .onAppear {
-                        print(#fileID, #line, "WebView", isLoading)
-                    }
-                    .opacity(!isLoading ? 1 : 0)
-                
-            }
-        }
-    }
-
-    private func isAnimatable(svg: String) -> Bool {
-        svg.contains("animateTransform")
     }
 }

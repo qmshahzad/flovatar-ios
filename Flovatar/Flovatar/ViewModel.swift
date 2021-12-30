@@ -23,15 +23,15 @@ import UIKit
 
 class ViewModel: ObservableObject {
     @Published var address: String = ""
-
+    
     @Published var advance = false
     
     @Published var isLoading: Bool = false
-
+    
     @Published var isPlayVideo: Bool = false
-
+    
     @Published var videoURL: URL? = nil
-
+    
     @Published var flovatars: [Flovatar] = []
     
     @Published var isLoadingNextPage: Bool = false
@@ -40,7 +40,7 @@ class ViewModel: ObservableObject {
     
     init() {
         fcl.delegate = self
-
+        
         fcl.config(
             appInfo: FCLAppInfo(
                 title: "Flovatar",
@@ -51,11 +51,11 @@ class ViewModel: ObservableObject {
             providers: [.blocto]
         )
     }
-
+    
     func skipAuth() {
         self.advance = true
     }
-
+    
     func auth(provider: FCLProvider) {
         // Default provider is dapper
         address = ""
@@ -72,7 +72,7 @@ class ViewModel: ObservableObject {
             }
         }
     }
-
+    
     // needs to be replaced with blockchain address lookup
     func fetchNFTs(pageNumber: Int = 1) {
         // let apiClient = NFTAPIClient(url: URL(string: "https://flovatar.com/collection/api/0x715eba9a0dd9d21a")!)
@@ -100,15 +100,15 @@ class ViewModel: ObservableObject {
         self.address = ""
     }
     
-    func isAnimatable(svg: String) -> Bool {
-        svg.contains("animateTransform")
+    func current(index: Int) {
+        if shouldLoadNextPage(currentIndex: index) {
+            loadNextPage()
+        }
     }
     
-    func loadNextPage(currentIndex: Int) {
-        if shouldLoadNextPage(currentIndex: currentIndex) {
-            isLoadingNextPage = true
-            fetchNFTs(pageNumber: loadedPageNumber + 1)
-        }
+    private func loadNextPage() {
+        isLoadingNextPage = true
+        fetchNFTs(pageNumber: loadedPageNumber + 1)
     }
     
     private func shouldLoadNextPage(currentIndex: Int) -> Bool {
@@ -128,7 +128,7 @@ extension ViewModel: FCLAuthDelegate {
     func showLoading() {
         isLoading = true
     }
-
+    
     func hideLoading() {
         isLoading = false
     }
